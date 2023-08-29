@@ -15,8 +15,5 @@
             PDO::ATTR_EMULATE_PREPARES   => false
         ];
         $pdo = new PDO($dsn, $dbusername, $dbpassword, $opt);
-        
-
-    include "php_functions.php";
     
 ?>

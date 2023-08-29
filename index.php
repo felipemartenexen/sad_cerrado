@@ -77,11 +77,9 @@ var to_month
 
 var years_selected
 
-var biomes = [1,2,3,4,5,6]
-
-var biomesNames = []
-
 var uf
+
+var mun
 
 var territory
 
@@ -98,6 +96,8 @@ function sendInfo() {
     to_date =  $('#input_data_final').val();
         
     uf = $('#input_uf').val();
+
+    mun = $('#input_mun').val();
 
 }
 
@@ -122,17 +122,17 @@ submitFormWithPost('#filter', function(response) {
    
   console.log('Success!', response);  
 
-  data = converterValoresParaNumero(response, ['area', 'detect_mon', 'detect_yea']);
+  data = converterValoresParaNumero(response, ['area']);
   
   sendInfo();
   
-  data = applyMultiFilter(data, uf, [], from_date, to_date);
+  data = applyMultiFilter(data, uf, mun, from_date, to_date);
 
   console.log(data);  
 
   updateInfo();
 
- });
+});
 
 $(document).ready(function() {   
 	var $form = $('#filter');
@@ -157,7 +157,7 @@ function applyMultiFilter(jsonData, codUfValues, codMunValues, from, to) {
         const isCodMunValid = codMunValues.includes(item.cod_mun);
         const isDetectDateValid = item.detect_dat >= from && item.detect_dat <= to;
 
-        return isCodUfValid /*&& isCodMunValid*/ && isDetectDateValid;
+        return isCodUfValid && isCodMunValid && isDetectDateValid;
     });
 }
 
@@ -266,7 +266,7 @@ function calcularSomaEOrdenarPorVeg(array) {
     1: 'Savanna',
     2: 'Campo',
     3: 'Floresta',
-    4: 'SomeLandUse', 
+    4: 'Mata Seca', 
     // Add more mappings as needed
   };
 
@@ -385,9 +385,9 @@ function comparacao_civil(){
       }
    };
 
-if(window.bar_1 != undefined) 
-window.bar_1.destroy(); 
-window.bar_1 = new Chart(ctxCivil, config_radar_diagCivil);
+   if(window.bar_1 != undefined) 
+   window.bar_1.destroy(); 
+   window.bar_1 = new Chart(ctxCivil, config_radar_diagCivil);
 }
 
 function comparacao_agricola(){   
@@ -558,7 +558,7 @@ function rankingUF(){
                },
          },
       }
-};
+   }
 
    //var chart_ranking_uf = new Chart(ctx_uf, conf_ranking_uf);
 
@@ -569,89 +569,89 @@ function rankingUF(){
 
 function rankingMun(){
 
-var ctx_mun = document.getElementById("ranking_mun").getContext('2d');
-var conf_ranking_mun = {
-   type: 'bar',
-   data: {
-      labels: [
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),0).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),1).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),2).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),3).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),4).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),5).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),6).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),7).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),8).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),9).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),10).nm_mun,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),11).nm_mun
-      ],
-      datasets: [{
-            label: 'Área - ha',
-            data: [
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),0).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),1).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),2).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),3).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),4).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),5).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),6).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),7).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),8).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),9).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),10).soma,
-             getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),11).soma
-            ],
-            borderWidth: 2,
-            backgroundColor: '#e44d59',
-            borderColor: '#e44d59',
-            borderWidth: 0.0,
-            pointBackgroundColor: '#ffffff'
-      }]
-   },
-   options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-            display: true
+   var ctx_mun = document.getElementById("ranking_mun").getContext('2d');
+   var conf_ranking_mun = {
+      type: 'bar',
+      data: {
+         labels: [
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),0).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),1).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),2).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),3).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),4).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),5).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),6).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),7).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),8).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),9).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),10).nm_mun,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),11).nm_mun
+         ],
+         datasets: [{
+               label: 'Área - ha',
+               data: [
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),0).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),1).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),2).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),3).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),4).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),5).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),6).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),7).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),8).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),9).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),10).soma,
+               getElementAtIndexOrZero(calcularSomaEOrdenarPorMun(data),11).soma
+               ],
+               borderWidth: 2,
+               backgroundColor: '#e44d59',
+               borderColor: '#e44d59',
+               borderWidth: 0.0,
+               pointBackgroundColor: '#ffffff'
+         }]
       },
-      scales: {
-            y: {
-               ticks: {
-                  beginAtZero: true,
-                  stepSize: 150,
-                  color: "#9ba6b5",
+      options: {
+         indexAxis: 'y',
+         responsive: true,
+         maintainAspectRatio: false,
+         legend: {
+               display: true
+         },
+         scales: {
+               y: {
+                  ticks: {
+                     beginAtZero: true,
+                     stepSize: 150,
+                     color: "#9ba6b5",
+                  },
+                  grid: {
+                     color: 'rgba(119, 119, 142, 0.2)'
+                  }
                },
-               grid: {
-                  color: 'rgba(119, 119, 142, 0.2)'
+               x: {
+                  barPercentage: 0.4,
+                  barValueSpacing: 0,
+                  barDatasetSpacing: 0,
+                  barRadius: 0,
+                  ticks: {
+                     display: true,
+                     color: "#9ba6b5",
+                  },
+                  grid: {
+                     display: false,
+                     color: 'rgba(119, 119, 142, 0.2)'
+                  }
                }
-            },
-            x: {
-               barPercentage: 0.4,
-               barValueSpacing: 0,
-               barDatasetSpacing: 0,
-               barRadius: 0,
-               ticks: {
-                  display: true,
-                  color: "#9ba6b5",
+         },
+         legend: {
+               labels: {
+                  fontColor: "#9ba6b5"
                },
-               grid: {
-                  display: false,
-                  color: 'rgba(119, 119, 142, 0.2)'
-               }
-            }
-      },
-      legend: {
-            labels: {
-               fontColor: "#9ba6b5"
-            },
-      },
+         },
+      }
    }
-};
 
-if(window.bar_3 != undefined) 
+   if(window.bar_3 != undefined) 
    window.bar_3.destroy(); 
    window.bar_3 = new Chart(ctx_mun, conf_ranking_mun);
 }
@@ -912,6 +912,40 @@ legend.onAdd = function (map) {
 
 legend.addTo(map);
 
+function translateToEnglish(){
+   alert("Calm down my friend... Don't hurry...")
+}
+
+var stateSelect = document.getElementById("input_uf");
+
+function multiSelectMun(){   
+        
+   var citySelect = document.getElementById("input_mun");
+
+   citySelect.innerHTML  = '';
+
+   $('#input_mun').multipleSelect('refresh');
+
+   const selectedStates = Array.from(stateSelect.selectedOptions).map(option => option.value);
+
+   selectedStates.forEach(state => {
+      if (citiesByState[state]) {         
+            $('#input_mun').append(citiesByState[state]).multipleSelect('refresh');       
+      }
+   });
+
+}
+
+$('#input_uf').multipleSelect('refreshOptions', {
+      filter: false,
+      onClick: function() {
+         multiSelectMun()
+      },
+      onClose: function(){
+         multiSelectMun()
+      }
+})
+//
 
    </script>
 </html>

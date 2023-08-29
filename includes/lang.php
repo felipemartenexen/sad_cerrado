@@ -9,12 +9,12 @@
             <ul class="row p-3">
                 <li class="col-lg-6 mb-2">
                     <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block active">
-                    <span class="country-selector"><img alt="" src="assets/images/flags-img/us_flag.jpg" class="me-3 language"></span>Português
+                    <span class="country-selector"><img alt="" src="assets/images/flags-img/us_flag.jpg" class="me-3 language"></span>Português-BR
                     </a>
                 </li>
                 <li class="col-lg-6 mb-2">
-                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
-                    <span class="country-selector"><img alt="" src="assets/images/flags-img/italy_flag.jpg" class="me-3 language"></span>Inglês
+                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block" onclick=translateToEnglish()>
+                    <span class="country-selector"><img alt="" src="https://spruko.com/demo/sash/sash/assets/images/flags-img/us_flag.jpg" class="me-3 language"></span>Inglês
                     </a>
                 </li>
             </ul>

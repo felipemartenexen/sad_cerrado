@@ -19,4 +19,4 @@
 <!-- INTERNAL Switcher css -->
 <link href="assets/switcher/css/switcher.css" rel="stylesheet">
 <link href="assets/switcher/demo.css" rel="stylesheet">
-<link rel="stylesheet" href="http://davidstutz.github.io/bootstrap-multiselect/dist/css/bootstrap-multiselect.css">
+<link rel="stylesheet" href="https://unpkg.com/multiple-select@1.6.0/dist/multiple-select.min.css">

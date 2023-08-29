@@ -28,7 +28,8 @@
                     </div>
                     <div class="ms-auto">
                         <div class="chart-wrapper mt-1">
-                            <img src="assets/images/brand/IPM-sadcerrado-icone-total.png"  width="65" height="65" >                                                      </div>
+                            <img src="assets/images/brand/IPM-sadcerrado-icone-total.png"  width="65" height="65" > 
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -44,7 +45,8 @@
                     </div>
                     <div class="ms-auto">
                         <div class="chart-wrapper mt-1">
-                            <img src="assets/images/brand/IPM-sadcerrado-icone-area.png"  width="65" height="65" >                                                      </div>
+                            <img src="assets/images/brand/IPM-sadcerrado-icone-area.png"  width="65" height="65" >
+                        </div>
                     </div>
                     </div>
                 </div>

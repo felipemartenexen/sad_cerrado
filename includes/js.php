@@ -21,7 +21,7 @@
 <script src="assets/plugins/p-scroll/pscroll.js"></script>
 <script src="assets/plugins/p-scroll/pscroll-1.js"></script>
 <!-- MULTI SELECT JS-->
-<script src="assets/plugins/multipleselect/multiple-select.js"></script>
+<script src="https://unpkg.com/multiple-select@1.6.0/dist/multiple-select.min.js"></script>
 <script src="assets/plugins/multipleselect/multi-select.js"></script>
 <!-- SIDE-MENU JS -->
 <script src="assets/plugins/sidemenu/sidemenu.js"></script>
@@ -42,3 +42,4 @@
 
 <script src="assets/data/cerrado_mun.js"></script>
 <script src="assets/data/cerrado_uf.js"></script>
+<script src="assets/data/citiesByState.js"></script>

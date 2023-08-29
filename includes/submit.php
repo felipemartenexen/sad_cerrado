@@ -14,7 +14,7 @@ try {
     //$ymax = $_POST['ymax_input'];
 
     // Consulta SQL com parâmetros preparados  
-    $sql = "select sum(area) as area, count(*), detect_dat, nm_mun, cod_mun, nm_uf, cod_uf,nm_uc, nm_ti, imovel, nm_comunid, nm_projeto, vegetation from alerta_v2
+    $sql = "select sum(area) as area, count(*), detect_dat, nm_mun, cod_mun, nm_uf, cod_uf,nm_uc, nm_ti, imovel, nm_comunid, nm_projeto, vegetation from alerta_v3
             group by detect_dat, nm_mun, cod_mun, nm_uf, cod_uf, nm_uc, nm_ti, imovel, nm_comunid, nm_projeto, vegetation
             order by nm_mun, detect_dat";
             
