@@ -50,255 +50,253 @@ var citiesByState = {
     '<option value="2931806" selected>BA - Tremedal</option>' +
     '<option value="2932606" selected>BA - Urandi</option>' +
     '<option value="2933455" selected>BA - Wanderley</option>',
-    53: '<option value="2933455" selected>DF - Brasília</option>',
-    52: [
-        {"nome" : "Abadia de Goiás" , "cod" : "5200050"} , 
-        {"nome" : "Abadiânia" , "cod" : "5200100"} , 
-        {"nome" : "Acreúna" , "cod" : "5200134"} , 
-        {"nome" : "Adelândia" , "cod" : "5200159"} , 
-        {"nome" : "Água Fria de Goiás" , "cod" : "5200175"} , 
-        {"nome" : "Água Limpa" , "cod" : "5200209"} , 
-        {"nome" : "Águas Lindas de Goiás" , "cod" : "5200258"} , 
-        {"nome" : "Alexânia" , "cod" : "5200308"} , 
-        {"nome" : "Aloândia" , "cod" : "5200506"} , 
-        {"nome" : "Alto Horizonte" , "cod" : "5200555"} , 
-        {"nome" : "Alto Paraíso de Goiás" , "cod" : "5200605"} , 
-        {"nome" : "Alvorada do Norte" , "cod" : "5200803"} , 
-        {"nome" : "Amaralina" , "cod" : "5200829"} , 
-        {"nome" : "Americano do Brasil" , "cod" : "5200852"} , 
-        {"nome" : "Amorinópolis" , "cod" : "5200902"} , 
-        {"nome" : "Anápolis" , "cod" : "5201108"} , 
-        {"nome" : "Anhanguera" , "cod" : "5201207"} , 
-        {"nome" : "Anicuns" , "cod" : "5201306"} , 
-        {"nome" : "Aparecida de Goiânia" , "cod" : "5201405"} , 
-        {"nome" : "Aparecida do Rio Doce" , "cod" : "5201454"} , 
-        {"nome" : "Aporé" , "cod" : "5201504"} , 
-        {"nome" : "Araçu" , "cod" : "5201603"} , 
-        {"nome" : "Aragarças" , "cod" : "5201702"} , 
-        {"nome" : "Aragoiânia" , "cod" : "5201801"} , 
-        {"nome" : "Araguapaz" , "cod" : "5202155"} , 
-        {"nome" : "Arenópolis" , "cod" : "5202353"} , 
-        {"nome" : "Aruanã" , "cod" : "5202502"} , 
-        {"nome" : "Aurilândia" , "cod" : "5202601"} , 
-        {"nome" : "Avelinópolis" , "cod" : "5202809"} , 
-        {"nome" : "Baliza" , "cod" : "5203104"} , 
-        {"nome" : "Barro Alto" , "cod" : "5203203"} , 
-        {"nome" : "Bela Vista de Goiás" , "cod" : "5203302"} , 
-        {"nome" : "Bom Jardim de Goiás" , "cod" : "5203401"} , 
-        {"nome" : "Bom Jesus de Goiás" , "cod" : "5203500"} , 
-        {"nome" : "Bonfinópolis" , "cod" : "5203559"} , 
-        {"nome" : "Bonópolis" , "cod" : "5203575"} , 
-        {"nome" : "Brazabrantes" , "cod" : "5203609"} , 
-        {"nome" : "Britânia" , "cod" : "5203807"} , 
-        {"nome" : "Buriti Alegre" , "cod" : "5203906"} , 
-        {"nome" : "Buriti de Goiás" , "cod" : "5203939"} , 
-        {"nome" : "Buritinópolis" , "cod" : "5203962"} , 
-        {"nome" : "Cabeceiras" , "cod" : "5204003"} , 
-        {"nome" : "Cachoeira Alta" , "cod" : "5204102"} , 
-        {"nome" : "Cachoeira de Goiás" , "cod" : "5204201"} , 
-        {"nome" : "Cachoeira Dourada" , "cod" : "5204250"} , 
-        {"nome" : "Caçu" , "cod" : "5204300"} , 
-        {"nome" : "Caiapônia" , "cod" : "5204409"} , 
-        {"nome" : "Caldas Novas" , "cod" : "5204508"} , 
-        {"nome" : "Caldazinha" , "cod" : "5204557"} , 
-        {"nome" : "Campestre de Goiás" , "cod" : "5204607"} , 
-        {"nome" : "Campinaçu" , "cod" : "5204656"} , 
-        {"nome" : "Campinorte" , "cod" : "5204706"} , 
-        {"nome" : "Campo Alegre de Goiás" , "cod" : "5204805"} , 
-        {"nome" : "Campo Limpo de Goiás" , "cod" : "5204854"} , 
-        {"nome" : "Campos Belos" , "cod" : "5204904"} , 
-        {"nome" : "Campos Verdes" , "cod" : "5204953"} , 
-        {"nome" : "Carmo do Rio Verde" , "cod" : "5205000"} , 
-        {"nome" : "Castelândia" , "cod" : "5205059"} , 
-        {"nome" : "Catalão" , "cod" : "5205109"} , 
-        {"nome" : "Caturaí" , "cod" : "5205208"} , 
-        {"nome" : "Cavalcante" , "cod" : "5205307"} , 
-        {"nome" : "Ceres" , "cod" : "5205406"} , 
-        {"nome" : "Cezarina" , "cod" : "5205455"} , 
-        {"nome" : "Chapadão do Céu" , "cod" : "5205471"} , 
-        {"nome" : "Cidade Ocidental" , "cod" : "5205497"} , 
-        {"nome" : "Cocalzinho de Goiás" , "cod" : "5205513"} , 
-        {"nome" : "Colinas do Sul" , "cod" : "5205521"} , 
-        {"nome" : "Córrego do Ouro" , "cod" : "5205703"} , 
-        {"nome" : "Corumbá de Goiás" , "cod" : "5205802"} , 
-        {"nome" : "Corumbaíba" , "cod" : "5205901"} , 
-        {"nome" : "Cristalina" , "cod" : "5206206"} , 
-        {"nome" : "Cristianópolis" , "cod" : "5206305"} , 
-        {"nome" : "Crixás" , "cod" : "5206404"} , 
-        {"nome" : "Cromínia" , "cod" : "5206503"} , 
-        {"nome" : "Cumari" , "cod" : "5206602"} , 
-        {"nome" : "Damianópolis" , "cod" : "5206701"} , 
-        {"nome" : "Damolândia" , "cod" : "5206800"} , 
-        {"nome" : "Davinópolis" , "cod" : "5206909"} , 
-        {"nome" : "Diorama" , "cod" : "5207105"} , 
-        {"nome" : "Doverlândia" , "cod" : "5207253"} , 
-        {"nome" : "Edealina" , "cod" : "5207352"} , 
-        {"nome" : "Edéia" , "cod" : "5207402"} , 
-        {"nome" : "Estrela do Norte" , "cod" : "5207501"} , 
-        {"nome" : "Faina" , "cod" : "5207535"} , 
-        {"nome" : "Fazenda Nova" , "cod" : "5207600"} , 
-        {"nome" : "Firminópolis" , "cod" : "5207808"} , 
-        {"nome" : "Flores de Goiás" , "cod" : "5207907"} , 
-        {"nome" : "Formosa" , "cod" : "5208004"} , 
-        {"nome" : "Formoso" , "cod" : "5208103"} , 
-        {"nome" : "Gameleira de Goiás" , "cod" : "5208152"} , 
-        {"nome" : "Divinópolis de Goiás" , "cod" : "5208301"} , 
-        {"nome" : "Goianápolis" , "cod" : "5208400"} , 
-        {"nome" : "Goiandira" , "cod" : "5208509"} , 
-        {"nome" : "Goianésia" , "cod" : "5208608"} , 
-        {"nome" : "Goiânia" , "cod" : "5208707"} , 
-        {"nome" : "Goianira" , "cod" : "5208806"} , 
-        {"nome" : "Goiás" , "cod" : "5208905"} , 
-        {"nome" : "Goiatuba" , "cod" : "5209101"} , 
-        {"nome" : "Gouvelândia" , "cod" : "5209150"} , 
-        {"nome" : "Guapó" , "cod" : "5209200"} , 
-        {"nome" : "Guaraíta" , "cod" : "5209291"} , 
-        {"nome" : "Guarani de Goiás" , "cod" : "5209408"} , 
-        {"nome" : "Guarinos" , "cod" : "5209457"} , 
-        {"nome" : "Heitoraí" , "cod" : "5209606"} , 
-        {"nome" : "Hidrolândia" , "cod" : "5209705"} , 
-        {"nome" : "Hidrolina" , "cod" : "5209804"} , 
-        {"nome" : "Iaciara" , "cod" : "5209903"} , 
-        {"nome" : "Inaciolândia" , "cod" : "5209937"} , 
-        {"nome" : "Indiara" , "cod" : "5209952"} , 
-        {"nome" : "Inhumas" , "cod" : "5210000"} , 
-        {"nome" : "Ipameri" , "cod" : "5210109"} , 
-        {"nome" : "Ipiranga de Goiás" , "cod" : "5210158"} , 
-        {"nome" : "Iporá" , "cod" : "5210208"} , 
-        {"nome" : "Israelândia" , "cod" : "5210307"} , 
-        {"nome" : "Itaberaí" , "cod" : "5210406"} , 
-        {"nome" : "Itaguari" , "cod" : "5210562"} , 
-        {"nome" : "Itaguaru" , "cod" : "5210604"} , 
-        {"nome" : "Itajá" , "cod" : "5210802"} , 
-        {"nome" : "Itapaci" , "cod" : "5210901"} , 
-        {"nome" : "Itapirapuã" , "cod" : "5211008"} , 
-        {"nome" : "Itapuranga" , "cod" : "5211206"} , 
-        {"nome" : "Itarumã" , "cod" : "5211305"} , 
-        {"nome" : "Itauçu" , "cod" : "5211404"} , 
-        {"nome" : "Itumbiara" , "cod" : "5211503"} , 
-        {"nome" : "Ivolândia" , "cod" : "5211602"} , 
-        {"nome" : "Jandaia" , "cod" : "5211701"} , 
-        {"nome" : "Jaraguá" , "cod" : "5211800"} , 
-        {"nome" : "Jataí" , "cod" : "5211909"} , 
-        {"nome" : "Jaupaci" , "cod" : "5212006"} , 
-        {"nome" : "Jesúpolis" , "cod" : "5212055"} , 
-        {"nome" : "Joviânia" , "cod" : "5212105"} , 
-        {"nome" : "Jussara" , "cod" : "5212204"} , 
-        {"nome" : "Lagoa Santa" , "cod" : "5212253"} , 
-        {"nome" : "Leopoldo de Bulhões" , "cod" : "5212303"} , 
-        {"nome" : "Luziânia" , "cod" : "5212501"} , 
-        {"nome" : "Mairipotaba" , "cod" : "5212600"} , 
-        {"nome" : "Mambaí" , "cod" : "5212709"} , 
-        {"nome" : "Mara Rosa" , "cod" : "5212808"} , 
-        {"nome" : "Marzagão" , "cod" : "5212907"} , 
-        {"nome" : "Matrinchã" , "cod" : "5212956"} , 
-        {"nome" : "Maurilândia" , "cod" : "5213004"} , 
-        {"nome" : "Mimoso de Goiás" , "cod" : "5213053"} , 
-        {"nome" : "Minaçu" , "cod" : "5213087"} , 
-        {"nome" : "Mineiros" , "cod" : "5213103"} , 
-        {"nome" : "Moiporá" , "cod" : "5213400"} , 
-        {"nome" : "Monte Alegre de Goiás" , "cod" : "5213509"} , 
-        {"nome" : "Montes Claros de Goiás" , "cod" : "5213707"} , 
-        {"nome" : "Montividiu" , "cod" : "5213756"} , 
-        {"nome" : "Montividiu do Norte" , "cod" : "5213772"} , 
-        {"nome" : "Morrinhos" , "cod" : "5213806"} , 
-        {"nome" : "Morro Agudo de Goiás" , "cod" : "5213855"} , 
-        {"nome" : "Mossâmedes" , "cod" : "5213905"} , 
-        {"nome" : "Mozarlândia" , "cod" : "5214002"} , 
-        {"nome" : "Mundo Novo" , "cod" : "5214051"} , 
-        {"nome" : "Mutunópolis" , "cod" : "5214101"} , 
-        {"nome" : "Nazário" , "cod" : "5214408"} , 
-        {"nome" : "Nerópolis" , "cod" : "5214507"} , 
-        {"nome" : "Niquelândia" , "cod" : "5214606"} , 
-        {"nome" : "Nova América" , "cod" : "5214705"} , 
-        {"nome" : "Nova Aurora" , "cod" : "5214804"} , 
-        {"nome" : "Nova Crixás" , "cod" : "5214838"} , 
-        {"nome" : "Nova Glória" , "cod" : "5214861"} , 
-        {"nome" : "Nova Iguaçu de Goiás" , "cod" : "5214879"} , 
-        {"nome" : "Nova Roma" , "cod" : "5214903"} , 
-        {"nome" : "Nova Veneza" , "cod" : "5215009"} , 
-        {"nome" : "Novo Brasil" , "cod" : "5215207"} , 
-        {"nome" : "Novo Gama" , "cod" : "5215231"} , 
-        {"nome" : "Novo Planalto" , "cod" : "5215256"} , 
-        {"nome" : "Orizona" , "cod" : "5215306"} , 
-        {"nome" : "Ouro Verde de Goiás" , "cod" : "5215405"} , 
-        {"nome" : "Ouvidor" , "cod" : "5215504"} , 
-        {"nome" : "Padre Bernardo" , "cod" : "5215603"} , 
-        {"nome" : "Palestina de Goiás" , "cod" : "5215652"} , 
-        {"nome" : "Palmeiras de Goiás" , "cod" : "5215702"} , 
-        {"nome" : "Palmelo" , "cod" : "5215801"} , 
-        {"nome" : "Palminópolis" , "cod" : "5215900"} , 
-        {"nome" : "Panamá" , "cod" : "5216007"} , 
-        {"nome" : "Paranaiguara" , "cod" : "5216304"} , 
-        {"nome" : "Paraúna" , "cod" : "5216403"} , 
-        {"nome" : "Perolândia" , "cod" : "5216452"} , 
-        {"nome" : "Petrolina de Goiás" , "cod" : "5216809"} , 
-        {"nome" : "Pilar de Goiás" , "cod" : "5216908"} , 
-        {"nome" : "Piracanjuba" , "cod" : "5217104"} , 
-        {"nome" : "Piranhas" , "cod" : "5217203"} , 
-        {"nome" : "Pirenópolis" , "cod" : "5217302"} , 
-        {"nome" : "Pires do Rio" , "cod" : "5217401"} , 
-        {"nome" : "Planaltina" , "cod" : "5217609"} , 
-        {"nome" : "Pontalina" , "cod" : "5217708"} , 
-        {"nome" : "Porangatu" , "cod" : "5218003"} , 
-        {"nome" : "Porteirão" , "cod" : "5218052"} , 
-        {"nome" : "Portelândia" , "cod" : "5218102"} , 
-        {"nome" : "Posse" , "cod" : "5218300"} , 
-        {"nome" : "Professor Jamil" , "cod" : "5218391"} , 
-        {"nome" : "Quirinópolis" , "cod" : "5218508"} , 
-        {"nome" : "Rialma" , "cod" : "5218607"} , 
-        {"nome" : "Rianápolis" , "cod" : "5218706"} , 
-        {"nome" : "Rio Quente" , "cod" : "5218789"} , 
-        {"nome" : "Rio Verde" , "cod" : "5218805"} , 
-        {"nome" : "Rubiataba" , "cod" : "5218904"} , 
-        {"nome" : "Sanclerlândia" , "cod" : "5219001"} , 
-        {"nome" : "Santa Bárbara de Goiás" , "cod" : "5219100"} , 
-        {"nome" : "Santa Cruz de Goiás" , "cod" : "5219209"} , 
-        {"nome" : "Santa Fé de Goiás" , "cod" : "5219258"} , 
-        {"nome" : "Santa Helena de Goiás" , "cod" : "5219308"} , 
-        {"nome" : "Santa Isabel" , "cod" : "5219357"} , 
-        {"nome" : "Santa Rita do Araguaia" , "cod" : "5219407"} , 
-        {"nome" : "Santa Rita do Novo Destino" , "cod" : "5219456"} , 
-        {"nome" : "Santa Rosa de Goiás" , "cod" : "5219506"} , 
-        {"nome" : "Santa Tereza de Goiás" , "cod" : "5219605"} , 
-        {"nome" : "Santa Terezinha de Goiás" , "cod" : "5219704"} , 
-        {"nome" : "Santo Antônio da Barra" , "cod" : "5219712"} , 
-        {"nome" : "Santo Antônio de Goiás" , "cod" : "5219738"} , 
-        {"nome" : "Santo Antônio do Descoberto" , "cod" : "5219753"} , 
-        {"nome" : "São Domingos" , "cod" : "5219803"} , 
-        {"nome" : "São Francisco de Goiás" , "cod" : "5219902"} , 
-        {"nome" : "São João d'Aliança" , "cod" : "5220009"} , 
-        {"nome" : "São João da Paraúna" , "cod" : "5220058"} , 
-        {"nome" : "São Luís de Montes Belos" , "cod" : "5220108"} , 
-        {"nome" : "São Luiz do Norte" , "cod" : "5220157"} , 
-        {"nome" : "São Miguel do Araguaia" , "cod" : "5220207"} , 
-        {"nome" : "São Miguel do Passa Quatro" , "cod" : "5220264"} , 
-        {"nome" : "São Patrício" , "cod" : "5220280"} , 
-        {"nome" : "São Simão" , "cod" : "5220405"} , 
-        {"nome" : "Senador Canedo" , "cod" : "5220454"} , 
-        {"nome" : "Serranópolis" , "cod" : "5220504"} , 
-        {"nome" : "Silvânia" , "cod" : "5220603"} , 
-        {"nome" : "Simolândia" , "cod" : "5220686"} , 
-        {"nome" : "Sítio d'Abadia" , "cod" : "5220702"} , 
-        {"nome" : "Taquaral de Goiás" , "cod" : "5221007"} , 
-        {"nome" : "Teresina de Goiás" , "cod" : "5221080"} , 
-        {"nome" : "Terezópolis de Goiás" , "cod" : "5221197"} , 
-        {"nome" : "Três Ranchos" , "cod" : "5221304"} , 
-        {"nome" : "Trindade" , "cod" : "5221403"} , 
-        {"nome" : "Trombas" , "cod" : "5221452"} , 
-        {"nome" : "Turvânia" , "cod" : "5221502"} , 
-        {"nome" : "Turvelândia" , "cod" : "5221551"} , 
-        {"nome" : "Uirapuru" , "cod" : "5221577"} , 
-        {"nome" : "Uruaçu" , "cod" : "5221601"} , 
-        {"nome" : "Uruana" , "cod" : "5221700"} , 
-        {"nome" : "Urutaí" , "cod" : "5221809"} , 
-        {"nome" : "Valparaíso de Goiás" , "cod" : "5221858"} , 
-        {"nome" : "Varjão" , "cod" : "5221908"} , 
-        {"nome" : "Vianópolis" , "cod" : "5222005"} , 
-        {"nome" : "Vicentinópolis" , "cod" : "5222054"} , 
-        {"nome" : "Vila Boa" , "cod" : "5222203"} , 
-        {"nome" : "Vila Propício" , "cod" : "5222302"}         
-    ],
+    53: '<option value="5300108" selected>DF - Brasília</option>',
+    52: '<option value="5200050" selected>GO -  Abadia de Goiás </option>' +
+    '<option value="5200100" selected>GO -  Abadiânia </option>' +
+    '<option value="5200134" selected>GO -  Acreúna </option>' +
+    '<option value="5200159" selected>GO -  Adelândia </option>' +
+    '<option value="5200175" selected>GO -  Água Fria de Goiás </option>' +
+    '<option value="5200209" selected>GO -  Água Limpa </option>' +
+    '<option value="5200258" selected>GO -  Águas Lindas de Goiás </option>' +
+    '<option value="5200308" selected>GO -  Alexânia </option>' +
+    '<option value="5200506" selected>GO -  Aloândia </option>' +
+    '<option value="5200555" selected>GO -  Alto Horizonte </option>' +
+    '<option value="5200605" selected>GO -  Alto Paraíso de Goiás </option>' +
+    '<option value="5200803" selected>GO -  Alvorada do Norte </option>' +
+    '<option value="5200829" selected>GO -  Amaralina </option>' +
+    '<option value="5200852" selected>GO -  Americano do Brasil </option>' +
+    '<option value="5200902" selected>GO -  Amorinópolis </option>' +
+    '<option value="5201108" selected>GO -  Anápolis </option>' +
+    '<option value="5201207" selected>GO -  Anhanguera </option>' +
+    '<option value="5201306" selected>GO -  Anicuns </option>' +
+    '<option value="5201405" selected>GO -  Aparecida de Goiânia </option>' +
+    '<option value="5201454" selected>GO -  Aparecida do Rio Doce </option>' +
+    '<option value="5201504" selected>GO -  Aporé </option>' +
+    '<option value="5201603" selected>GO -  Araçu </option>' +
+    '<option value="5201702" selected>GO -  Aragarças </option>' +
+    '<option value="5201801" selected>GO -  Aragoiânia </option>' +
+    '<option value="5202155" selected>GO -  Araguapaz </option>' +
+    '<option value="5202353" selected>GO -  Arenópolis </option>' +
+    '<option value="5202502" selected>GO -  Aruanã </option>' +
+    '<option value="5202601" selected>GO -  Aurilândia </option>' +
+    '<option value="5202809" selected>GO -  Avelinópolis </option>' +
+    '<option value="5203104" selected>GO -  Baliza </option>' +
+    '<option value="5203203" selected>GO -  Barro Alto </option>' +
+    '<option value="5203302" selected>GO -  Bela Vista de Goiás </option>' +
+    '<option value="5203401" selected>GO -  Bom Jardim de Goiás </option>' +
+    '<option value="5203500" selected>GO -  Bom Jesus de Goiás </option>' +
+    '<option value="5203559" selected>GO -  Bonfinópolis </option>' +
+    '<option value="5203575" selected>GO -  Bonópolis </option>' +
+    '<option value="5203609" selected>GO -  Brazabrantes </option>' +
+    '<option value="5203807" selected>GO -  Britânia </option>' +
+    '<option value="5203906" selected>GO -  Buriti Alegre </option>' +
+    '<option value="5203939" selected>GO -  Buriti de Goiás </option>' +
+    '<option value="5203962" selected>GO -  Buritinópolis </option>' +
+    '<option value="5204003" selected>GO -  Cabeceiras </option>' +
+    '<option value="5204102" selected>GO -  Cachoeira Alta </option>' +
+    '<option value="5204201" selected>GO -  Cachoeira de Goiás </option>' +
+    '<option value="5204250" selected>GO -  Cachoeira Dourada </option>' +
+    '<option value="5204300" selected>GO -  Caçu </option>' +
+    '<option value="5204409" selected>GO -  Caiapônia </option>' +
+    '<option value="5204508" selected>GO -  Caldas Novas </option>' +
+    '<option value="5204557" selected>GO -  Caldazinha </option>' +
+    '<option value="5204607" selected>GO -  Campestre de Goiás </option>' +
+    '<option value="5204656" selected>GO -  Campinaçu </option>' +
+    '<option value="5204706" selected>GO -  Campinorte </option>' +
+    '<option value="5204805" selected>GO -  Campo Alegre de Goiás </option>' +
+    '<option value="5204854" selected>GO -  Campo Limpo de Goiás </option>' +
+    '<option value="5204904" selected>GO -  Campos Belos </option>' +
+    '<option value="5204953" selected>GO -  Campos Verdes </option>' +
+    '<option value="5205000" selected>GO -  Carmo do Rio Verde </option>' +
+    '<option value="5205059" selected>GO -  Castelândia </option>' +
+    '<option value="5205109" selected>GO -  Catalão </option>' +
+    '<option value="5205208" selected>GO -  Caturaí </option>' +
+    '<option value="5205307" selected>GO -  Cavalcante </option>' +
+    '<option value="5205406" selected>GO -  Ceres </option>' +
+    '<option value="5205455" selected>GO -  Cezarina </option>' +
+    '<option value="5205471" selected>GO -  Chapadão do Céu </option>' +
+    '<option value="5205497" selected>GO -  Cidade Ocidental </option>' +
+    '<option value="5205513" selected>GO -  Cocalzinho de Goiás </option>' +
+    '<option value="5205521" selected>GO -  Colinas do Sul </option>' +
+    '<option value="5205703" selected>GO -  Córrego do Ouro </option>' +
+    '<option value="5205802" selected>GO -  Corumbá de Goiás </option>' +
+    '<option value="5205901" selected>GO -  Corumbaíba </option>' +
+    '<option value="5206206" selected>GO -  Cristalina </option>' +
+    '<option value="5206305" selected>GO -  Cristianópolis </option>' +
+    '<option value="5206404" selected>GO -  Crixás </option>' +
+    '<option value="5206503" selected>GO -  Cromínia </option>' +
+    '<option value="5206602" selected>GO -  Cumari </option>' +
+    '<option value="5206701" selected>GO -  Damianópolis </option>' +
+    '<option value="5206800" selected>GO -  Damolândia </option>' +
+    '<option value="5206909" selected>GO -  Davinópolis </option>' +
+    '<option value="5207105" selected>GO -  Diorama </option>' +
+    '<option value="5207253" selected>GO -  Doverlândia </option>' +
+    '<option value="5207352" selected>GO -  Edealina </option>' +
+    '<option value="5207402" selected>GO -  Edéia </option>' +
+    '<option value="5207501" selected>GO -  Estrela do Norte </option>' +
+    '<option value="5207535" selected>GO -  Faina </option>' +
+    '<option value="5207600" selected>GO -  Fazenda Nova </option>' +
+    '<option value="5207808" selected>GO -  Firminópolis </option>' +
+    '<option value="5207907" selected>GO -  Flores de Goiás </option>' +
+    '<option value="5208004" selected>GO -  Formosa </option>' +
+    '<option value="5208103" selected>GO -  Formoso </option>' +
+    '<option value="5208152" selected>GO -  Gameleira de Goiás </option>' +
+    '<option value="5208301" selected>GO -  Divinópolis de Goiás </option>' +
+    '<option value="5208400" selected>GO -  Goianápolis </option>' +
+    '<option value="5208509" selected>GO -  Goiandira </option>' +
+    '<option value="5208608" selected>GO -  Goianésia </option>' +
+    '<option value="5208707" selected>GO -  Goiânia </option>' +
+    '<option value="5208806" selected>GO -  Goianira </option>' +
+    '<option value="5208905" selected>GO -  Goiás </option>' +
+    '<option value="5209101" selected>GO -  Goiatuba </option>' +
+    '<option value="5209150" selected>GO -  Gouvelândia </option>' +
+    '<option value="5209200" selected>GO -  Guapó </option>' +
+    '<option value="5209291" selected>GO -  Guaraíta </option>' +
+    '<option value="5209408" selected>GO -  Guarani de Goiás </option>' +
+    '<option value="5209457" selected>GO -  Guarinos </option>' +
+    '<option value="5209606" selected>GO -  Heitoraí </option>' +
+    '<option value="5209705" selected>GO -  Hidrolândia </option>' +
+    '<option value="5209804" selected>GO -  Hidrolina </option>' +
+    '<option value="5209903" selected>GO -  Iaciara </option>' +
+    '<option value="5209937" selected>GO -  Inaciolândia </option>' +
+    '<option value="5209952" selected>GO -  Indiara </option>' +
+    '<option value="5210000" selected>GO -  Inhumas </option>' +
+    '<option value="5210109" selected>GO -  Ipameri </option>' +
+    '<option value="5210158" selected>GO -  Ipiranga de Goiás </option>' +
+    '<option value="5210208" selected>GO -  Iporá </option>' +
+    '<option value="5210307" selected>GO -  Israelândia </option>' +
+    '<option value="5210406" selected>GO -  Itaberaí </option>' +
+    '<option value="5210562" selected>GO -  Itaguari </option>' +
+    '<option value="5210604" selected>GO -  Itaguaru </option>' +
+    '<option value="5210802" selected>GO -  Itajá </option>' +
+    '<option value="5210901" selected>GO -  Itapaci </option>' +
+    '<option value="5211008" selected>GO -  Itapirapuã </option>' +
+    '<option value="5211206" selected>GO -  Itapuranga </option>' +
+    '<option value="5211305" selected>GO -  Itarumã </option>' +
+    '<option value="5211404" selected>GO -  Itauçu </option>' +
+    '<option value="5211503" selected>GO -  Itumbiara </option>' +
+    '<option value="5211602" selected>GO -  Ivolândia </option>' +
+    '<option value="5211701" selected>GO -  Jandaia </option>' +
+    '<option value="5211800" selected>GO -  Jaraguá </option>' +
+    '<option value="5211909" selected>GO -  Jataí </option>' +
+    '<option value="5212006" selected>GO -  Jaupaci </option>' +
+    '<option value="5212055" selected>GO -  Jesúpolis </option>' +
+    '<option value="5212105" selected>GO -  Joviânia </option>' +
+    '<option value="5212204" selected>GO -  Jussara </option>' +
+    '<option value="5212253" selected>GO -  Lagoa Santa </option>' +
+    '<option value="5212303" selected>GO -  Leopoldo de Bulhões </option>' +
+    '<option value="5212501" selected>GO -  Luziânia </option>' +
+    '<option value="5212600" selected>GO -  Mairipotaba </option>' +
+    '<option value="5212709" selected>GO -  Mambaí </option>' +
+    '<option value="5212808" selected>GO -  Mara Rosa </option>' +
+    '<option value="5212907" selected>GO -  Marzagão </option>' +
+    '<option value="5212956" selected>GO -  Matrinchã </option>' +
+    '<option value="5213004" selected>GO -  Maurilândia </option>' +
+    '<option value="5213053" selected>GO -  Mimoso de Goiás </option>' +
+    '<option value="5213087" selected>GO -  Minaçu </option>' +
+    '<option value="5213103" selected>GO -  Mineiros </option>' +
+    '<option value="5213400" selected>GO -  Moiporá </option>' +
+    '<option value="5213509" selected>GO -  Monte Alegre de Goiás </option>' +
+    '<option value="5213707" selected>GO -  Montes Claros de Goiás </option>' +
+    '<option value="5213756" selected>GO -  Montividiu </option>' +
+    '<option value="5213772" selected>GO -  Montividiu do Norte </option>' +
+    '<option value="5213806" selected>GO -  Morrinhos </option>' +
+    '<option value="5213855" selected>GO -  Morro Agudo de Goiás </option>' +
+    '<option value="5213905" selected>GO -  Mossâmedes </option>' +
+    '<option value="5214002" selected>GO -  Mozarlândia </option>' +
+    '<option value="5214051" selected>GO -  Mundo Novo </option>' +
+    '<option value="5214101" selected>GO -  Mutunópolis </option>' +
+    '<option value="5214408" selected>GO -  Nazário </option>' +
+    '<option value="5214507" selected>GO -  Nerópolis </option>' +
+    '<option value="5214606" selected>GO -  Niquelândia </option>' +
+    '<option value="5214705" selected>GO -  Nova América </option>' +
+    '<option value="5214804" selected>GO -  Nova Aurora </option>' +
+    '<option value="5214838" selected>GO -  Nova Crixás </option>' +
+    '<option value="5214861" selected>GO -  Nova Glória </option>' +
+    '<option value="5214879" selected>GO -  Nova Iguaçu de Goiás </option>' +
+    '<option value="5214903" selected>GO -  Nova Roma </option>' +
+    '<option value="5215009" selected>GO -  Nova Veneza </option>' +
+    '<option value="5215207" selected>GO -  Novo Brasil </option>' +
+    '<option value="5215231" selected>GO -  Novo Gama </option>' +
+    '<option value="5215256" selected>GO -  Novo Planalto </option>' +
+    '<option value="5215306" selected>GO -  Orizona </option>' +
+    '<option value="5215405" selected>GO -  Ouro Verde de Goiás </option>' +
+    '<option value="5215504" selected>GO -  Ouvidor </option>' +
+    '<option value="5215603" selected>GO -  Padre Bernardo </option>' +
+    '<option value="5215652" selected>GO -  Palestina de Goiás </option>' +
+    '<option value="5215702" selected>GO -  Palmeiras de Goiás </option>' +
+    '<option value="5215801" selected>GO -  Palmelo </option>' +
+    '<option value="5215900" selected>GO -  Palminópolis </option>' +
+    '<option value="5216007" selected>GO -  Panamá </option>' +
+    '<option value="5216304" selected>GO -  Paranaiguara </option>' +
+    '<option value="5216403" selected>GO -  Paraúna </option>' +
+    '<option value="5216452" selected>GO -  Perolândia </option>' +
+    '<option value="5216809" selected>GO -  Petrolina de Goiás </option>' +
+    '<option value="5216908" selected>GO -  Pilar de Goiás </option>' +
+    '<option value="5217104" selected>GO -  Piracanjuba </option>' +
+    '<option value="5217203" selected>GO -  Piranhas </option>' +
+    '<option value="5217302" selected>GO -  Pirenópolis </option>' +
+    '<option value="5217401" selected>GO -  Pires do Rio </option>' +
+    '<option value="5217609" selected>GO -  Planaltina </option>' +
+    '<option value="5217708" selected>GO -  Pontalina </option>' +
+    '<option value="5218003" selected>GO -  Porangatu </option>' +
+    '<option value="5218052" selected>GO -  Porteirão </option>' +
+    '<option value="5218102" selected>GO -  Portelândia </option>' +
+    '<option value="5218300" selected>GO -  Posse </option>' +
+    '<option value="5218391" selected>GO -  Professor Jamil </option>' +
+    '<option value="5218508" selected>GO -  Quirinópolis </option>' +
+    '<option value="5218607" selected>GO -  Rialma </option>' +
+    '<option value="5218706" selected>GO -  Rianápolis </option>' +
+    '<option value="5218789" selected>GO -  Rio Quente </option>' +
+    '<option value="5218805" selected>GO -  Rio Verde </option>' +
+    '<option value="5218904" selected>GO -  Rubiataba </option>' +
+    '<option value="5219001" selected>GO -  Sanclerlândia </option>' +
+    '<option value="5219100" selected>GO -  Santa Bárbara de Goiás </option>' +
+    '<option value="5219209" selected>GO -  Santa Cruz de Goiás </option>' +
+    '<option value="5219258" selected>GO -  Santa Fé de Goiás </option>' +
+    '<option value="5219308" selected>GO -  Santa Helena de Goiás </option>' +
+    '<option value="5219357" selected>GO -  Santa Isabel </option>' +
+    '<option value="5219407" selected>GO -  Santa Rita do Araguaia </option>' +
+    '<option value="5219456" selected>GO -  Santa Rita do Novo Destino </option>' +
+    '<option value="5219506" selected>GO -  Santa Rosa de Goiás </option>' +
+    '<option value="5219605" selected>GO -  Santa Tereza de Goiás </option>' +
+    '<option value="5219704" selected>GO -  Santa Terezinha de Goiás </option>' +
+    '<option value="5219712" selected>GO -  Santo Antônio da Barra </option>' +
+    '<option value="5219738" selected>GO -  Santo Antônio de Goiás </option>' +
+    '<option value="5219753" selected>GO -  Santo Antônio do Descoberto </option>' +
+    '<option value="5219803" selected>GO -  São Domingos </option>' +
+    '<option value="5219902" selected>GO -  São Francisco de Goiás </option>' +
+    '<option value="5220009" selected>GO -  São João dAliança </option>' +
+    '<option value="5220058" selected>GO -  São João da Paraúna </option>' +
+    '<option value="5220108" selected>GO -  São Luís de Montes Belos </option>' +
+    '<option value="5220157" selected>GO -  São Luiz do Norte </option>' +
+    '<option value="5220207" selected>GO -  São Miguel do Araguaia </option>' +
+    '<option value="5220264" selected>GO -  São Miguel do Passa Quatro </option>' +
+    '<option value="5220280" selected>GO -  São Patrício </option>' +
+    '<option value="5220405" selected>GO -  São Simão </option>' +
+    '<option value="5220454" selected>GO -  Senador Canedo </option>' +
+    '<option value="5220504" selected>GO -  Serranópolis </option>' +
+    '<option value="5220603" selected>GO -  Silvânia </option>' +
+    '<option value="5220686" selected>GO -  Simolândia </option>' +
+    '<option value="5220702" selected>GO -  Sítio dAbadia </option>' +
+    '<option value="5221007" selected>GO -  Taquaral de Goiás </option>' +
+    '<option value="5221080" selected>GO -  Teresina de Goiás </option>' +
+    '<option value="5221197" selected>GO -  Terezópolis de Goiás </option>' +
+    '<option value="5221304" selected>GO -  Três Ranchos </option>' +
+    '<option value="5221403" selected>GO -  Trindade </option>' +
+    '<option value="5221452" selected>GO -  Trombas </option>' +
+    '<option value="5221502" selected>GO -  Turvânia </option>' +
+    '<option value="5221551" selected>GO -  Turvelândia </option>' +
+    '<option value="5221577" selected>GO -  Uirapuru </option>' +
+    '<option value="5221601" selected>GO -  Uruaçu </option>' +
+    '<option value="5221700" selected>GO -  Uruana </option>' +
+    '<option value="5221809" selected>GO -  Urutaí </option>' +
+    '<option value="5221858" selected>GO -  Valparaíso de Goiás </option>' +
+    '<option value="5221908" selected>GO -  Varjão </option>' +
+    '<option value="5222005" selected>GO -  Vianópolis </option>' +
+    '<option value="5222054" selected>GO -  Vicentinópolis </option>' +
+    '<option value="5222203" selected>GO -  Vila Boa </option>' +
+    '<option value="5222302" selected>GO -  Vila Propício </option>',
     21: '<option value="2100105" selected>MA - Afonso Cunha</option>' + 
     '<option value="2100154" selected>MA - Água Doce do Maranhão</option>' +
     '<option value="2100303" selected>MA - Aldeias Altas</option>' +

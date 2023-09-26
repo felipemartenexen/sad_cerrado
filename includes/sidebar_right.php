@@ -13,6 +13,9 @@
                 <li class="" data-bs-target="#citar-selector" data-bs-toggle="modal">
                     <a href="#sidebar-side1" class="" aria-selected="false" role="tab" tabindex="-1"><i class="fe fe-book-open me-1"></i>Como Citar</a>
                 </li>
+                <li class="" data-bs-target="#nota-selector" data-bs-toggle="modal">
+                    <a href="#sidebar-side1" class="" aria-selected="false" role="tab" tabindex="-1"><i class="fe fe-book-open me-1"></i>Nota de Precaução</a>
+                </li>
             </ul>
         </div>
         </div>

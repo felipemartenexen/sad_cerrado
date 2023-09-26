@@ -62,8 +62,7 @@
       </div>
       <scribe-shadow id="crxjs-ext" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible;"></scribe-shadow>
    </body>
-   <script>
-
+<script>
 
 var data
 
@@ -99,6 +98,8 @@ function sendInfo() {
 
     mun = $('#input_mun').val();
 
+    territory = $('#input_territorio').val();
+
 }
 
 function submitFormWithPost(formSelector, successCallback) {
@@ -126,7 +127,7 @@ submitFormWithPost('#filter', function(response) {
   
   sendInfo();
   
-  data = applyMultiFilter(data, uf, mun, from_date, to_date);
+  data = applyMultiFilter(data, uf, mun, from_date, to_date, territory);
 
   console.log(data);  
 
@@ -161,6 +162,7 @@ function applyMultiFilter(jsonData, codUfValues, codMunValues, from, to) {
     });
 }
 
+
 // Função para somar os valores de uma propriedade específica em um array de objetos JSON
 function somarValores(array, propriedade) {
   return array.reduce((total, objeto) => total + objeto[propriedade], 0);
@@ -185,6 +187,10 @@ function updateInfo(){
    rankingMun();  
 
    rankingVegetation();
+
+   rankingFundiario();
+
+   rankingSize();
 
    comparacao_mun();
 
@@ -229,7 +235,6 @@ function calcularSomaEOrdenarPorUf(array) {
 
 }
 
-
 function calcularSomaEOrdenarPorMun(array) {
   const somaPorCodMun = {};
 
@@ -260,13 +265,12 @@ function calcularSomaEOrdenarPorMun(array) {
 
 }
 
-
 function calcularSomaEOrdenarPorVeg(array) {
   const vegetationMapping = {
-    1: 'Savanna',
-    2: 'Campo',
+    2: 'Savanna',
+    1: 'Campo',
     3: 'Floresta',
-    4: 'Mata Seca', 
+    4: 'Mata Seca',
     // Add more mappings as needed
   };
 
@@ -276,23 +280,80 @@ function calcularSomaEOrdenarPorVeg(array) {
   array.forEach(objeto => {
     const valorArea = isNaN(objeto.area) ? 0 : parseFloat(objeto.area);
     const mappedVegetation = vegetationMapping[objeto.vegetation] || 'unknown';
-    
+
     if (!somaPorVeg[mappedVegetation]) {
       somaPorVeg[mappedVegetation] = 0;
     }
     somaPorVeg[mappedVegetation] += valorArea;
   });
 
-  // Converter o resultado em um array de objetos { vegetation, soma }
-  const resultados = Object.keys(somaPorVeg).map(vegetation => ({
-    vegetation,
-    soma: somaPorVeg[vegetation] / 10000
-  }));
+  // Converter o resultado em um único objeto { vegetation, soma }
+  const resultado = Object.keys(somaPorVeg).reduce((acc, vegetation) => {
+    acc[vegetation] = somaPorVeg[vegetation] / 10000;
+    return acc;
+  }, {});
 
-  // Ordenar de forma decrescente com base na soma
-  resultados.sort((a, b) => b.soma - a.soma);
+  return resultado;
+}
 
-  return resultados;
+function calcularSomaEOrdenarPorFundiario(dataArray) {
+  const result = {};
+
+  for (const item of dataArray) {
+    const { nm_projeto, nm_ti, nm_uc, imovel, nm_comunid, vazio, area } = item;
+
+    if (nm_projeto !== null) {
+      result['nm_projeto'] = (result['nm_projeto'] || 0) + (area / 10000);
+    }
+
+    if (nm_ti !== null) {
+      result['nm_ti'] = (result['nm_ti'] || 0) + (area / 10000);
+    }
+
+    if (nm_uc !== null) {
+      result['nm_uc'] = (result['nm_uc'] || 0) + (area / 10000);
+    }
+
+    if (imovel !== null) {
+      result['imovel'] = (result['imovel'] || 0) + (area / 10000);
+    }
+
+    if (nm_comunid !== null) {
+      result['nm_comunid'] = (result['nm_comunid'] || 0) + (area / 10000);
+    }
+
+    if (nm_projeto == null && nm_ti == null && nm_uc == null && imovel == null && nm_comunid == null) {
+      result['vazio'] = (result['vazio'] || 0) + (area / 10000);
+    }
+
+  }
+
+  return result;
+}
+
+function calcularSomaEOrdenarPorTamanho(data) {
+  // Create an object to store the sums for each size category
+  const sumsBySizeCategory = {};
+
+  // Iterate through the data array
+  data.forEach((item) => {
+    const { size_category, area } = item;
+
+    // If the size_category doesn't exist in sumsBySizeCategory, initialize it with 0
+    if (!sumsBySizeCategory[size_category]) {
+      sumsBySizeCategory[size_category] = 0;
+    }
+
+    // Add the area value to the sum for the corresponding size category
+    sumsBySizeCategory[size_category] += area;
+  });
+
+  // Divide the summed areas by 10,000
+  for (const sizeCategory in sumsBySizeCategory) {
+    sumsBySizeCategory[sizeCategory] /= 10000;
+  }
+
+  return sumsBySizeCategory;
 }
 
 function getElementAtIndexOrZero(array, index) {
@@ -302,7 +363,6 @@ function getElementAtIndexOrZero(array, index) {
     return '0';
   }
 }
-///
 
 function comparacao_civil(){   
 
@@ -312,7 +372,7 @@ function comparacao_civil(){
       data: {
          labels: [ "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
          datasets: [{
-               label: "2022",
+               label: "Área ha - 2022",
                data: [                    
                   calcularSomaPorMes(data, '2022-01'),
                   calcularSomaPorMes(data, '2022-02'),
@@ -327,11 +387,11 @@ function comparacao_civil(){
                   calcularSomaPorMes(data, '2022-11'),
                   calcularSomaPorMes(data, '2022-12')                  
                ],
-               borderColor: "#e44d59",
+               borderColor: "#E44D59",
                borderWidth: "0",
-               backgroundColor: "#e44d59"
+               backgroundColor: "#E44D59"
          }, {
-               label: "2023",
+               label: "Área ha - 2023",
                data: [
                   calcularSomaPorMes(data, '2023-01'),
                   calcularSomaPorMes(data, '2023-02'),
@@ -346,9 +406,9 @@ function comparacao_civil(){
                   calcularSomaPorMes(data, '2023-11'),
                   calcularSomaPorMes(data, '2023-12')           
                ],
-               borderColor: "#e8bf07",
+               borderColor: "#72262C",
                borderWidth: "0",
-               backgroundColor: "#e8bf07"
+               backgroundColor: "#72262C"
          }]
       },
       options: {
@@ -398,7 +458,7 @@ function comparacao_agricola(){
       data: {
          labels: [ "Ago", "Set", "Out", "Nov", "Dez", "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"],
          datasets: [{
-               label: "2022",
+               label: "Área ha - 2022",
                data: [                   
                   calcularSomaPorMes(data, '2022-08'),
                   calcularSomaPorMes(data, '2022-09'),
@@ -413,11 +473,11 @@ function comparacao_agricola(){
                   calcularSomaPorMes(data, '2022-06'),
                   calcularSomaPorMes(data, '2022-07')                
                ],
-               borderColor: "#e44d59",
+               borderColor: "#E44D59",
                borderWidth: "0",
-               backgroundColor: "#e44d59"
+               backgroundColor: "#E44D59"
          }, {
-               label: "2023",
+               label: "Área ha - 2023",
                data: [
                   calcularSomaPorMes(data, '2023-08'),
                   calcularSomaPorMes(data, '2023-09'),
@@ -432,9 +492,9 @@ function comparacao_agricola(){
                   calcularSomaPorMes(data, '2023-06'),
                   calcularSomaPorMes(data, '2023-07')     
                ],
-               borderColor: "#e8bf07",
+               borderColor: "#72262C",
                borderWidth: "0",
-               backgroundColor: "#e8bf07"
+               backgroundColor: "#72262C"
          }]
       },
       options: {
@@ -658,14 +718,45 @@ function rankingMun(){
 
 function rankingVegetation() {
     
+   var dataVagetation = calcularSomaEOrdenarPorVeg(data);
+
+   var ctx7 = document.getElementById('ranking_class');
+
+   var areaVegetation = dataVagetation['Campo'] + dataVagetation['Savanna'] + dataVagetation['Floresta'];
+
     var datapie = {
-        labels: [calcularSomaEOrdenarPorVeg(data)[0].vegetation, calcularSomaEOrdenarPorVeg(data)[1].vegetation, calcularSomaEOrdenarPorVeg(data)[2].vegetation, calcularSomaEOrdenarPorVeg(data)[3].vegetation],
+        labels: [
+         'Campo ',
+         'Savana', 
+         'Floresta' 
+         ],
         datasets: [{
-            data: [ calcularSomaEOrdenarPorVeg(data)[0].soma, calcularSomaEOrdenarPorVeg(data)[1].soma, calcularSomaEOrdenarPorVeg(data)[2].soma, calcularSomaEOrdenarPorVeg(data)[3].soma ],
-            backgroundColor: ['#00ff00','#006400', '#b8af4f', '#000000']
+            data: [ dataVagetation['Campo'], dataVagetation['Savanna'], dataVagetation['Floresta'] ],
+            backgroundColor: [ '#b8af4f', '#00ff00','#006400'],
+            datalabels: {
+            align: 'end',
+            anchor: 'center',
+            formatter: function(value) {
+               return Math.round((value / areaVegetation ) * 100) + '%';
+               }
+            }
         }]
     };
     var optionpie = {
+      plugins: {
+      datalabels: {
+        backgroundColor: function(context) {
+          return context.dataset.backgroundColor;
+        },
+        borderRadius: 4,
+        color: 'white',
+        font: {
+          weight: 'bold'
+        },
+        formatter: Math.round,
+        padding: 6
+      }
+    },
         maintainAspectRatio: false,
         responsive: true,
         legend: {
@@ -677,49 +768,178 @@ function rankingVegetation() {
         }
     };
 
-    var ctx7 = document.getElementById('ranking_class');
 
    if(window.bar_4 != undefined) 
    window.bar_4.destroy(); 
    window.bar_4 = new Chart(ctx7, {
+        plugins: [ChartDataLabels],
         type: 'pie',
         data: datapie,
         options: optionpie
     });
 }
 
+function rankingFundiario() {
+
+    var dataFundiario = calcularSomaEOrdenarPorFundiario(data);
+
+    var areaFundiario = dataFundiario['vazio'] + dataFundiario['imovel'] + dataFundiario['nm_projeto'] + dataFundiario['nm_ti'] + dataFundiario['nm_comunid'] + dataFundiario['nm_uc'] 
+
+    var datapie = {
+        labels: ['Vazio Fundiário', 'Imóvel Privado', 'Assentamento', 'Território Indígena', 'Território Quilombola', 'Unidade de Conservação'],
+        datasets: [{
+            data: [ dataFundiario['vazio'], dataFundiario['imovel'], dataFundiario['nm_projeto'], dataFundiario['nm_ti'], dataFundiario['nm_comunid'], dataFundiario['nm_uc'] ],
+            backgroundColor: ['#B63D47','#72262C', '#E44D59', '#FCEDEE', '#F4B7BC', '#EC828A'],
+            datalabels: {
+            align: 'end',
+            anchor: 'center',
+            formatter: function(value) {
+               return Math.round((value / areaFundiario ) * 100) + '%';
+               }
+            }
+        }],
+
+    };
+    var optionpie = {
+      plugins: {
+      datalabels: {
+        backgroundColor: function(context) {
+          return context.dataset.backgroundColor;
+        },
+        borderRadius: 4,
+        color: 'white',
+        font: {
+          weight: 'bold'
+        },
+        formatter: Math.round,
+        padding: 6
+      }
+    },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+            display: false,
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    };
+
+    var ctx8 = document.getElementById('ranking_fundiario');
+
+   if(window.bar_5 != undefined) 
+   window.bar_5.destroy(); 
+   window.bar_5 = new Chart(ctx8, {
+        plugins: [ChartDataLabels],
+        type: 'pie',
+        data: datapie,
+        options: optionpie
+    });
+}
+
+function rankingSize() {
+
+   var dataSize = calcularSomaEOrdenarPorTamanho(data);
+
+   var areaSize = dataSize['menor3ha'] + dataSize['3a5ha'] + dataSize['5a10ha'] + dataSize['10a50ha'] + dataSize['maior50ha'];
+
+   var datapie = {
+      labels: ['Menor 3ha', '3 a 5 ha', '5 a 10 ha', '10 a 50 ha', 'Acima de 50 ha'],
+      datasets: [{
+         data: [ dataSize['menor3ha'], dataSize['3a5ha'], dataSize['5a10ha'], dataSize['10a50ha'], dataSize['maior50ha']],
+         backgroundColor: ['#F4B7BC','#EC828A', '#E44D59', '#B63D47', '#72262C'],
+         datalabels: {
+            align: 'end',
+            anchor: 'center',
+            formatter: function(value) {
+               return Math.round((value / areaSize ) * 100) + '%';
+               }
+            }
+
+      }]
+   };
+   var optionpie = {
+      plugins: {
+      datalabels: {
+        backgroundColor: function(context) {
+          return context.dataset.backgroundColor;
+        },
+        borderRadius: 4,
+        color: 'white',
+        font: {
+          weight: 'bold'
+        },
+        formatter: Math.round,
+        padding: 6
+      }
+    },
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: {
+         display: false,
+      },
+      animation: {
+         animateScale: true,
+         animateRotate: true
+      }
+   };
+
+   var ctx9 = document.getElementById('ranking_size');
+
+   if(window.bar_6 != undefined) 
+   window.bar_6.destroy(); 
+   window.bar_6 = new Chart(ctx9, {
+      plugins: [ChartDataLabels],
+      type: 'pie',
+      data: datapie,
+      options: optionpie
+   });
+}
 //map
 // Leftlet Maps
 
 
 var map = L.map('leaflet1').setView([-14.179186142354169, -50.185546875], 4);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 20
 }).addTo(map);	
 
-var layer_uf = L.geoJSON(uf_geo).addTo(map);
+function filterGeoJSONByProperty(geoJSON, propertyName, filterValues) {
+  // Check if the GeoJSON is valid
+  if (!geoJSON || !geoJSON.features || !Array.isArray(geoJSON.features)) {
+    throw new Error('Invalid GeoJSON input');
+  }
 
-var layer_mun;
+  // Filter the GeoJSON features based on the propertyName and filterValues
+  const filteredFeatures = geoJSON.features.filter((feature) => {
+    const propertyValue = feature.properties[propertyName];
+    return filterValues.includes(propertyValue);
+  });
+
+  // Create a new GeoJSON object with the filtered features
+  const filteredGeoJSON = {
+    type: 'FeatureCollection',
+    features: filteredFeatures,
+  };
+
+  return filteredGeoJSON;
+}
+
+var layer_mun = L.geoJSON(layer_mun).addTo(map);
 
 function comparacao_mun(){
-   if(map.hasLayer(layer_uf)){
-      map.removeLayer(layer_uf)
+   if(map.hasLayer(layer_mun)){
+      map.removeLayer(layer_mun)
       var data_mun = inserirAreaMun(mun_geo, calcularSomaEOrdenarPorMun(data))
-      layer_mun = L.geoJSON(data_mun, {
+      var filter_mun = filterGeoJSONByProperty(data_mun, 'CD_MUN', mun)
+      layer_mun = L.geoJSON(filter_mun, {
          style: style,
          onEachFeature: onEachFeatureMun
       }).addTo(map);
-   }
-}
-
-function comparacao_uf(){
-   if(map.hasLayer(layer_mun)){
-      map.removeLayer(layer_mun)
-      var data_uf = inserirAreaUf(uf_geo, calcularSomaEOrdenarPorUf(data))
-      layer_uf = L.geoJSON(data_uf, {
-         style: style,
-         onEachFeature: onEachFeatureUf
-      }).addTo(map);
+      map.fitBounds(layer_mun.getBounds())
    }
 }
 
@@ -728,58 +948,21 @@ function inserirAreaMun(geojsonPath, jsonFilePath) {
       // Read the GeoJSON file
       const geojson = geojsonPath;
 
-      // Read the JSON file with corresponding data
+      // Read the JSON file with corresponding datas
       const jsonData = jsonFilePath;
 
       // Create a mapping of cod_mun to the data in the JSON file
       const codMunMapping = {};
-      jsonData.forEach(item => {
+      jsonData.forEach(item => {         
          codMunMapping[item.cod_mun] = item.soma; // Replace 'value' with the actual property you want to insert
       });
 
       // Update the GeoJSON properties with the values from the JSON file
       geojson.features.forEach(feature => {
-         const codMun = feature.properties.CD_MUN;
+         const codMun = feature.properties.CD_MUN;         
          if (codMunMapping[codMun]) {
          feature.properties.soma = codMunMapping[codMun];
-         } else {
-         feature.properties.soma = 0; // Set a default value if COD_MUN doesn't match in the JSON file
-         }
-      });
-
-      // Save the updated GeoJSON back to a file or return it
-      // fs.writeFileSync(outputPath, JSON.stringify(geojson, null, 2), 'utf8');
-      
-      // Uncomment the above line if you want to save the updated GeoJSON to a file
-
-      return geojson; // Return the updated GeoJSON if needed
-      
-   } catch (error) {
-      console.error('An error occurred:', error);
-      return null;
-   }
-}
-
-function inserirAreaUf(geojsonPath, jsonFilePath) {
-   try {
-      // Read the GeoJSON file
-      const geojson = geojsonPath;
-
-      // Read the JSON file with corresponding data
-      const jsonData = jsonFilePath;
-
-      // Create a mapping of cod_mun to the data in the JSON file
-      const codMunMapping = {};
-      jsonData.forEach(item => {
-         codMunMapping[item.cod_uf] = item.soma; // Replace 'value' with the actual property you want to insert
-      });
-
-      // Update the GeoJSON properties with the values from the JSON file
-      geojson.features.forEach(feature => {
-         const codMun = feature.properties.CD_UF;
-         if (codMunMapping[codMun]) {
-         feature.properties.soma = codMunMapping[codMun];
-         } else {
+         } else {           
          feature.properties.soma = 0; // Set a default value if COD_MUN doesn't match in the JSON file
          }
       });
@@ -798,20 +981,19 @@ function inserirAreaUf(geojsonPath, jsonFilePath) {
 }
 
 function getColor(d) {
-    return d > 10000 ? '#800026' :
-           d > 5000  ? '#BD0026' :
-           d > 2000  ? '#E31A1C' :
-           d > 1000  ? '#FC4E2A' :
-           d > 500  ? '#FD8D3C' :
-           d > 200   ? '#FEB24C' :
-           d > 100   ? '#FED976' :
-                      '#FFEDA0';
+    return d > 10000 ? '#72262C' :
+           d > 5000  ? '#B63D47' :
+           d > 2000  ? '#E44D59' :
+           d > 1000  ? '#EC828A' :
+           d > 500  ? '#F4B7BC' :
+           d > 200   ? '#FCEDEE' :
+                      '#FCEDEE';
 }
 
 function style(feature) {
     return {
         fillColor: getColor(feature.properties.soma),
-        weight: 2,
+        weight: 1,
         opacity: 1,
         color: 'white',
         dashArray: '3',
@@ -842,11 +1024,6 @@ function resetHighlightMun(e) {
    info.update();
 }
 
-function resetHighlightUf(e) {
-   layer_uf.resetStyle(e.target);
-   info.update();
-}
-
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
@@ -855,14 +1032,6 @@ function onEachFeatureMun(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlightMun,
-        click: zoomToFeature
-    });
-}
-
-function onEachFeatureUf(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlightUf,
         click: zoomToFeature
     });
 }
@@ -891,14 +1060,13 @@ info.update = function (props) {
 
 info.addTo(map);
 
-
 var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 100, 200, 500, 1000, 2000, 5000, 10000],
-        labels = ['0', '100', '200', '500', '1.000', '2.000', '5.000', '10.000'];
+        grades = [0,  500, 1000, 2000, 5000, 10000],
+        labels = ['0', '500', '1.000', '2.000', '5.000', '10.000'];
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
@@ -945,7 +1113,7 @@ $('#input_uf').multipleSelect('refreshOptions', {
          multiSelectMun()
       }
 })
-//
+
 
    </script>
 </html>

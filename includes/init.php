@@ -2,10 +2,10 @@
     ob_start();
     session_start();
     //  *************** For PostgreSQL
-        $host = "localhost";
-        $dbname = "sad_cerrado";
-        $dbusername = "postgres";
-        $dbpassword = "6278mart";
+        $host = "mi3-ts9.a2hosting.com";
+        $dbname = "nucleorf_ipam";
+        $dbusername = "nucleorf_felipe";
+        $dbpassword = "f3l1p3M@rt";
         $dbport = "5432";
 
         $dsn = "pgsql:host=$host;dbname=$dbname;port=$dbport";
@@ -15,5 +15,7 @@
             PDO::ATTR_EMULATE_PREPARES   => false
         ];
         $pdo = new PDO($dsn, $dbusername, $dbpassword, $opt);
+
+        $root_directory = "projetos/mapredes";
     
 ?>

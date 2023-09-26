@@ -5,7 +5,7 @@
 <meta name="description" content="SAD Cerrado">
 <meta name="author" content="Felipe Martenexen">
 <!-- FAVICON -->
-<link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/brand/icon.ico">
 <!-- TITLE -->
 <title>SAD Cerrado</title>
 <!-- BOOTSTRAP CSS -->

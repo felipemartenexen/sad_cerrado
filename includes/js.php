@@ -15,7 +15,8 @@
 <!-- INTERNAL leaflet js -->
 <script src="assets/plugins/leaflet/leaflet.js"></script>            
 <!-- CHARTJS JS -->
-<script src="assets/plugins/chart/Chart.bundle.js"></script>            
+<script src="assets/plugins/chart/Chart.bundle.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>        
 <!-- Perfect SCROLLBAR JS-->
 <script src="assets/plugins/p-scroll/perfect-scrollbar.js"></script>
 <script src="assets/plugins/p-scroll/pscroll.js"></script>

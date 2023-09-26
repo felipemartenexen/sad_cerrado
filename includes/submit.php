@@ -7,20 +7,50 @@ try {
     // Conexão com o banco de dados usando o PDO
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname;port=$dbport", $dbusername, $dbpassword);
     
-    // Recebe os inputs do formulário
-    //$xmin = $_POST['xmin_input'];
-    //$ymin = $_POST['ymin_input'];
-    //$xmax = $_POST['xmax_input'];
-    //$ymax = $_POST['ymax_input'];
-
     // Consulta SQL com parâmetros preparados  
-    $sql = "select sum(area) as area, count(*), detect_dat, nm_mun, cod_mun, nm_uf, cod_uf,nm_uc, nm_ti, imovel, nm_comunid, nm_projeto, vegetation from alerta_v3
-            group by detect_dat, nm_mun, cod_mun, nm_uf, cod_uf, nm_uc, nm_ti, imovel, nm_comunid, nm_projeto, vegetation
-            order by nm_mun, detect_dat";
+    $sql = "SELECT 
+                SUM(area) AS area,
+                COUNT(*) AS count,
+                detect_dat,
+                nm_mun,
+                cod_mun,
+                nm_uf,
+                cod_uf,
+                nm_uc,
+                nm_ti,
+                imovel,
+                nm_comunid,
+                nm_projeto,
+                vegetation,
+                CASE 
+                    WHEN area < 30000 THEN 'menor3ha'
+                    WHEN area BETWEEN 30000 AND 50000 THEN '3a5ha'
+                    WHEN area BETWEEN 50000 AND 100000 THEN '5a10ha'
+                    WHEN area BETWEEN 100000 AND 500000 THEN '10a50ha'
+                    WHEN area > 500000 THEN 'maior50ha'
+                    ELSE 'Other' -- Handle any other cases as needed
+                END AS size_category
+            FROM alerta_v3
+            GROUP BY 
+                detect_dat,
+                nm_mun,
+                cod_mun,
+                nm_uf,
+                cod_uf,
+                nm_uc,
+                nm_ti,
+                imovel,
+                nm_comunid,
+                nm_projeto,
+                vegetation,
+                area
+                
+            ORDER BY nm_mun, detect_dat;
+            ";
             
     $stmt = $pdo->prepare($sql);
 
-    // Executa a consulta
+    // Executa a consultas
     $stmt->execute();
     
     // Obtém os resultados da consulta

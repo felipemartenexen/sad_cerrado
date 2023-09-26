@@ -14,3 +14,19 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="nota-selector">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content country-select-modal">
+        <div class="modal-header">
+            <h6 class="modal-title">Nota de Precaução</h6>
+            <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body" style="text-align: justify; text-justify: inter-word;">
+            <p>Os alertas disponibilizados pelo SAD Cerrado são detectados por algoritmos semi-automáticos, e não são sujeitos à validação individual.
+            Testes iniciais realizados para os alertas apontam para uma confiabilidade em torno de 95%, porém a acurácia específica de um determinado alerta de desmatamento não pode ser assegurada.
+            </p>           
+        </div>
+        </div>
+    </div>
+</div>
