@@ -5,7 +5,7 @@
         $host = "mi3-ts9.a2hosting.com";
         $dbname = "nucleorf_ipam";
         $dbusername = "nucleorf_felipe";
-        $dbpassword = "f3l1p3M@rt";
+        $dbpassword = "";
         $dbport = "5432";
 
         $dsn = "pgsql:host=$host;dbname=$dbname;port=$dbport";
