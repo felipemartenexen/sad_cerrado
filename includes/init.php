@@ -2,11 +2,11 @@
     ob_start();
     session_start();
     //  *************** For PostgreSQL
-        $host = "mi3-ts9.a2hosting.com";
-        $dbname = "nucleorf_ipam";
-        $dbusername = "nucleorf_felipe";
+        $host = "";
+        $dbname = "";
+        $dbusername = "";
         $dbpassword = "";
-        $dbport = "5432";
+        $dbport = "";
 
         $dsn = "pgsql:host=$host;dbname=$dbname;port=$dbport";
         $opt = [

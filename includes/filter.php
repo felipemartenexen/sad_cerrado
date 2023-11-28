@@ -10,7 +10,7 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label class="form-label">Estado</label>
-                                <select id="input_uf" name="input_uf[]" multiple="multiple" class="multi-select">
+                                <select id="input_uf" name="input_uf[]" multiple="multiple" class="multi-select" required>
                                     <option value="29" selected>Bahia</option>
                                     <option value="53" selected>Distrito Federal</option>
                                     <option value="52" selected>Goiás</option>

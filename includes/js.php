@@ -38,9 +38,9 @@
 <script src="assets/js/custom-swicher.js"></script>
 <!-- Switcher js -->
 <script src="assets/switcher/js/switcher.js"></script>
-<!-- Sad Cerrad -->
+<!-- Sad Cerrado -->
 <script src="assets/switcher/js/switcher.js"></script>
-
 <script src="assets/data/cerrado_mun.js"></script>
 <script src="assets/data/cerrado_uf.js"></script>
 <script src="assets/data/citiesByState.js"></script>
+<script src="assets/js/main.js"></script>
