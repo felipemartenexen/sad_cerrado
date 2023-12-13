@@ -236,39 +236,36 @@ function calcularSomaEOrdenarPorVeg(array) {
  
 
 function calcularSomaEOrdenarPorFundiario(dataArray) {
-  const result = {};
+  const result = {
+   'nm_projeto': 0,
+   'nm_ti': 0,
+   'nm_uc': 0,
+   'imovel': 0,
+   'nm_comunid': 0,
+   'vazio': 0
+  };
 
   for (const item of dataArray) {
     const { nm_projeto, nm_ti, nm_uc, imovel, nm_comunid, vazio, area } = item;
 
     if (nm_projeto !== null) {
       result['nm_projeto'] = (result['nm_projeto'] || 0) + (area / 10000);
-    } else {
-      result['nm_projeto'] = 0;
     }
 
     if (nm_ti !== null) {
       result['nm_ti'] = (result['nm_ti'] || 0) + (area / 10000);
-    } else {
-      result['nm_ti'] = 0;
     }
 
     if (nm_uc !== null) {
       result['nm_uc'] = (result['nm_uc'] || 0) + (area / 10000);
-    } else {
-      result['nm_uc'] = 0;
     }
 
     if (imovel !== null) {
       result['imovel'] = (result['imovel'] || 0) + (area / 10000);
-    } else {
-      result['imovel'] = 0;
     }
 
     if (nm_comunid !== null) {
       result['nm_comunid'] = (result['nm_comunid'] || 0) + (area / 10000);
-    } else {
-      result['nm_comunid'] = 0;
     }
 
     if (nm_projeto == null && nm_ti == null && nm_uc == null && imovel == null && nm_comunid == null) {
