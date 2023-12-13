@@ -5,6 +5,7 @@ var mun;
 var territory;
 var from_date;
 var to_date;
+var selectedProperties;
 
 // Function to extract input values and store them in global variables
 function sendInfo() {
@@ -13,6 +14,7 @@ function sendInfo() {
     uf = $('#input_uf').val();
     mun = $('#input_mun').val();
     territory = $('#input_territorio').val();
+    selectedProperties = Array.from(document.getElementById('input_territory').selectedOptions).map(option => option.value);
 }
 
 // Function to submit a form using POST request and handle the response
@@ -42,7 +44,7 @@ submitFormWithPost('#filter', function (response) {
     sendInfo();
 
     // Apply filters to the data based on input values
-    data = applyMultiFilter(data, uf, mun, from_date, to_date, territory);
+    data = applyMultiFilter(data, uf, mun, from_date, to_date, selectedProperties);
 
     // Uncomment the line below to view the filtered data
     // console.log(data);
@@ -69,14 +71,30 @@ function converterValoresParaNumero(array, propriedades) {
 }
 
 // Function to filter data based on multiple criteria
-function applyMultiFilter(jsonData, codUfValues, codMunValues, from, to) {
-    return jsonData.filter(item => {
-        const isCodUfValid = codUfValues.includes(item.cod_uf);
-        const isCodMunValid = codMunValues.includes(item.cod_mun);
-        const isDetectDateValid = item.detect_dat >= from && item.detect_dat <= to;
+function applyMultiFilter(jsonData, codUfValues, codMunValues, from, to, selectedProperties) {
+   return jsonData.filter(item => {
+       const isCodUfValid = codUfValues.includes(item.cod_uf);
+       const isCodMunValid = codMunValues.includes(item.cod_mun);
+       const isDetectDateValid = item.detect_dat >= from && item.detect_dat <= to;
 
-        return isCodUfValid && isCodMunValid && isDetectDateValid;
-    });
+       let sum = "";
+
+       // Filter based on selected properties and sum their values
+       selectedProperties.forEach(property => {
+           if (property === 'all_null') {
+               // Check if specific properties are all null
+               const propertiesToCheck = ["nm_uc", "imovel", "nm_projeto", "nm_ti", "nm_comunid"];
+               if (propertiesToCheck.every(prop => item[prop] === null)) {
+                   sum++;
+               }
+           } else if (item[property] !== null) {
+               // Assuming properties are numeric, adjust this logic based on the actual data types
+               sum += parseFloat(item[property]);
+           }
+       });
+
+       return isCodUfValid && isCodMunValid && isDetectDateValid && sum !== "";
+   });
 }
 
 // Function to sum the values of a specific property in an array of objects
@@ -108,7 +126,6 @@ function updateInfo() {
     rankingSize();
     comparacao_mun();
 }
-
 
 // Função para calcular a soma da propriedade 'area' com base no filtro 'month'
 function calcularSomaPorMes(array, date) {
@@ -179,35 +196,44 @@ function calcularSomaEOrdenarPorMun(array) {
 }
 
 function calcularSomaEOrdenarPorVeg(array) {
-  const vegetationMapping = {
-    2: 'Savanna',
-    1: 'Campo',
-    3: 'Floresta',
-    4: 'Mata Seca',
-    // Add more mappings as needed
-  };
-
-  const somaPorVeg = {};
-
-  // Calcular a soma da propriedade 'area' por 'vegetation'
-  array.forEach(objeto => {
-    const valorArea = isNaN(objeto.area) ? 0 : parseFloat(objeto.area);
-    const mappedVegetation = vegetationMapping[objeto.vegetation] || 'unknown';
-
-    if (!somaPorVeg[mappedVegetation]) {
-      somaPorVeg[mappedVegetation] = 0;
-    }
-    somaPorVeg[mappedVegetation] += valorArea;
-  });
-
-  // Converter o resultado em um único objeto { vegetation, soma }
-  const resultado = Object.keys(somaPorVeg).reduce((acc, vegetation) => {
-    acc[vegetation] = somaPorVeg[vegetation] / 10000;
-    return acc;
-  }, {});
-
-  return resultado;
-}
+   const vegetationMapping = {
+     1: 'Campo',
+     2: 'Savanna',
+     3: 'Floresta',
+     4: 'Mata Seca',
+     // Add more mappings as needed
+   };
+ 
+   const somaPorVeg = {};
+ 
+   // Calcular a soma da propriedade 'area' por 'vegetation'
+   array.forEach(objeto => {
+     const valorArea = isNaN(objeto.area) || objeto.area === undefined ? 0 : parseFloat(objeto.area);
+     const mappedVegetation = vegetationMapping[objeto.vegetation] || 'unknown';
+ 
+     if (!somaPorVeg[mappedVegetation]) {
+       somaPorVeg[mappedVegetation] = 0;
+     }
+     somaPorVeg[mappedVegetation] += valorArea;
+   });
+ 
+   // Set default values for missing vegetations
+   Object.keys(vegetationMapping).forEach(key => {
+     const mappedVegetation = vegetationMapping[key];
+     if (!somaPorVeg[mappedVegetation]) {
+       somaPorVeg[mappedVegetation] = 0;
+     }
+   });
+ 
+   // Converter o resultado em um único objeto { vegetation, soma }
+   const resultado = Object.keys(somaPorVeg).reduce((acc, vegetation) => {
+     acc[vegetation] = somaPorVeg[vegetation] / 10000;
+     return acc;
+   }, {});
+ 
+   return resultado;
+ }
+ 
 
 function calcularSomaEOrdenarPorFundiario(dataArray) {
   const result = {};
@@ -217,26 +243,38 @@ function calcularSomaEOrdenarPorFundiario(dataArray) {
 
     if (nm_projeto !== null) {
       result['nm_projeto'] = (result['nm_projeto'] || 0) + (area / 10000);
+    } else {
+      result['nm_projeto'] = 0;
     }
 
     if (nm_ti !== null) {
       result['nm_ti'] = (result['nm_ti'] || 0) + (area / 10000);
+    } else {
+      result['nm_ti'] = 0;
     }
 
     if (nm_uc !== null) {
       result['nm_uc'] = (result['nm_uc'] || 0) + (area / 10000);
+    } else {
+      result['nm_uc'] = 0;
     }
 
     if (imovel !== null) {
       result['imovel'] = (result['imovel'] || 0) + (area / 10000);
+    } else {
+      result['imovel'] = 0;
     }
 
     if (nm_comunid !== null) {
       result['nm_comunid'] = (result['nm_comunid'] || 0) + (area / 10000);
+    } else {
+      result['nm_comunid'] = 0;
     }
 
     if (nm_projeto == null && nm_ti == null && nm_uc == null && imovel == null && nm_comunid == null) {
       result['vazio'] = (result['vazio'] || 0) + (area / 10000);
+    } else {
+      result['vazio'] = 0;
     }
 
   }
@@ -636,12 +674,12 @@ function rankingVegetation() {
    var ctx7 = document.getElementById('ranking_class');
 
    var areaVegetation = (
-      (isNaN(dataVagetation['Campo']) ? 0 : dataVagetation['Campo']) +
-      (isNaN(dataVagetation['Savanna']) ? 0 : dataVagetation['Savanna']) +
-      (isNaN(dataVagetation['Floresta']) ? 0 : dataVagetation['Floresta'])
-   );
-
-    var datapie = {
+      (isNaN(dataVagetation['Campo']) || dataVagetation['Campo'] === undefined ? 0 : dataVagetation['Campo']) +
+      (isNaN(dataVagetation['Savanna']) || dataVagetation['Savanna'] === undefined ? 0 : dataVagetation['Savanna']) +
+      (isNaN(dataVagetation['Floresta']) || dataVagetation['Floresta'] === undefined ? 0 : dataVagetation['Floresta'])   );
+console.log(areaVegetation)
+    
+   var datapie = {
         labels: [
          'Campo ',
          'Savana', 

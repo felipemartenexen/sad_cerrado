@@ -7,7 +7,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="form-group">
                                 <label class="form-label">Estado</label>
                                 <select id="input_uf" name="input_uf[]" multiple="multiple" class="multi-select" required>
@@ -1470,9 +1470,22 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
+                                <label class="form-label">Recorte Fundiário</label>
+                                <select id="input_territory" multiple="multiple" class="multi-select" required>
+                                    <option value="nm_projeto" selected>Assentamento</option>
+                                    <option value="imovel" selected>CAR Privado</option>
+                                    <option value="nm_ti" selected>Território Indígena</option>
+                                    <option value="nm_comunid" selected>Território Quilombola</option>
+                                    <option value="nm_uc" selected>Unidade de Conservação</option>
+                                    <option value="all_null" selected>Vazio Fundiário</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="form-group">
                                 <label class="form-label">Data Início</label>
                                 <div class="input-group">                                                                                
-                                    <input id="input_data_inicial" class="form-control" type="month" value="2023-01" min="2022-01" max="2023-08">
+                                    <input id="input_data_inicial" class="form-control" type="month" value="2022-01" min="2022-01" max="2023-08" required>
                                 </div>
                             </div>
                         </div>
@@ -1480,14 +1493,14 @@
                             <div class="form-group">
                                 <label class="form-label">Data Fim</label>
                                 <div class="input-group">                                                                                
-                                    <input id="input_data_final" class="form-control" type="month" value="2023-08" min="2022-01" max="2023-08">
+                                    <input id="input_data_final" class="form-control" type="month" value="2023-08" min="2022-01" max="2023-08" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2" style="margin-top: 30px;">
+                        <div class="col-lg-1" style="margin-top: 30px;">
                             <div class="form-group">
                                 <div>                                                                                
-                                    <button id='atualizar' type="submit" class="btn btn-primary mt-1 mb-1"> <i class="fa fa-search"></i> <span>Buscar</span></button>
+                                    <button id='atualizar' type="submit" class="btn btn-primary mt-1 mb-1"> <i class="fa fa-search"></i> <span></span></button>
                                 </div>
                             </div>
                         </div>
